@@ -33,6 +33,12 @@ class UploadFileTest extends Simulation {
     .exec(FileUpload.uploadScanV3)
 
 
-  // Run the scenarios
-  setUp(scn.inject(atOnceUsers(1)).protocols(httpProtocol))
+ // Run the scenarios
+  setUp(
+    scn.inject(rampUsersPerSec(10) to (1000) during(10))
+      .protocols(httpProtocol)
+  ).assertions(//https://gatling.io/docs/current/general/assertions/
+    global.responseTime.max.lt(250),
+    global.successfulRequests.percent.gt(95)
+  )
 }
