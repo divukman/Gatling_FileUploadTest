@@ -1,0 +1,10 @@
+{
+  "simulation": "scanupload.UploadFileTest",
+  "simulationId": "uploadfiletest",
+  "start": 1605016858696,
+  "description": "",
+  "scenarios": ["Upload Scan Scenario"],
+  "assertions": [
+
+  ]
+}
